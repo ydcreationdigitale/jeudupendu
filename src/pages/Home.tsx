@@ -23,7 +23,7 @@ const Home = () => {
             MUSCULATION
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-            NEUFCHÂTEAU
+            15 Rue du Champion, 75018 Paris
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg">
