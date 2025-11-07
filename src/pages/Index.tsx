@@ -1,7 +1,7 @@
-import { HangmanGame } from "@/components/HangmanGame";
+import Home from "./Home";
 
 const Index = () => {
-  return <HangmanGame />;
+  return <Home />;
 };
 
 export default Index;
