@@ -8,7 +8,7 @@ const About = () => {
         <div className="prose prose-invert max-w-none">
           <p className="text-lg text-muted-foreground mb-6">
             Royal Thai Boxing est votre destination premium pour la boxe thaïlandaise,
-            la musculation et le training fonctionnel à Paris.
+            la musculation et le training fonctionnel à Neufchâteau.
           </p>
           <p className="text-lg text-muted-foreground">
             Notre club offre un environnement professionnel avec des équipements de

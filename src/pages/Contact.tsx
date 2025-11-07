@@ -8,8 +8,7 @@ const Contact = () => {
         <div className="space-y-6 text-center">
           <div>
             <h2 className="text-2xl font-bold mb-2">Adresse</h2>
-            <p className="text-muted-foreground">15 Rue du Champion</p>
-            <p className="text-muted-foreground">75018 Paris, France</p>
+            <p className="text-muted-foreground">Neufchâteau, Belgique</p>
           </div>
           <div>
             <h2 className="text-2xl font-bold mb-2">Horaires</h2>

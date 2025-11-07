@@ -1,7 +1,11 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
@@ -14,7 +18,6 @@ const navLinks = [
 
 export const Header = () => {
   const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b border-border">
@@ -42,43 +45,33 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+          {/* Mobile Navigation */}
+          <Sheet>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <nav className="flex flex-col gap-4 mt-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`text-lg font-medium transition-colors hover:text-primary ${
+                      location.pathname === link.path
+                        ? "text-primary"
+                        : "text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-
-      {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-background/98 backdrop-blur border-b border-border animate-fade-in">
-          <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-lg font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.path
-                    ? "text-primary"
-                    : "text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
     </header>
   );
 };
